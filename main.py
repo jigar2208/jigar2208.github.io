@@ -1,52 +1,28 @@
 import random
 
-rock = '''
-    _______
----'   ____)
-      (_____)
-      (_____)
-      (____)
----.__(___)
-'''
+letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
 
-paper = '''
-    _______
----'   ____)____
-          ______)
-          _______)
-         _______)
----.__________)
-'''
+print("Welcome to the PyPassword Generator!")
 
-scissors = '''
-    _______
----'   ____)____
-          ______)
-       __________)
-      (____)
----.__(___)
-'''
+nr_letters= int(input("How many letters would you like in your password?\n"))
 
-#Write your code below this line 👇
+nr_symbols = int(input(f"How many symbols would you like?\n"))
 
-game_images = [rock, paper, scissors]
-user_choice = int(input("What do you want to choose? \nType 0 for rock, Type 1 for paper and Type 2 for scissors.\n"))
-if user_choice >= 3 or user_choice < -1:
-  print("You choose invalid number. You lose!")
-else:
-  print(game_images[user_choice])
+nr_numbers = int(input(f"How many numbers would you like?\n"))
+
+password = ''
+
+for letter in range(1, nr_letters + 1):
+  password += random.choice(letters)
+  # print(letter, end="")
+
+for symbol in range(1, nr_symbols + 1):
+  password += random.choice(symbols)
+  # print(symbol, end = "")
   
-  computer_choice = random.randint(0,2)
-  print("computer choose:")
-  print(game_images[computer_choice])
-    
-  if user_choice == 0 and computer_choice == 2:
-    print("You win")
-  elif computer_choice == 0 and user_choice == 2:
-    print("You lose")
-  elif computer_choice > user_choice:
-      print("You lose")
-  elif computer_choice == user_choice:
-      print("It's a Draw")
-  else:
-    print("You win.")
+for number in range(1, nr_numbers + 1):
+  password += random.choice(numbers)
+  # print(number, end ='')
+print(f"Your password is: {password}")
